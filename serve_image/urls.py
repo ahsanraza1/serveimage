@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from serve_image_api import views
-from account import views as acc_view
+from portfolio import views
+# from account import views as acc_view
 
 from rest_framework.authtoken import views as authviews
 # from rest_framework_simplejwt.views import (
@@ -27,7 +27,7 @@ from rest_framework.authtoken import views as authviews
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('api/account/all', acc_view.show_users),
+    # path('api/account/all', acc_view.show_users),
 
 
     
@@ -41,7 +41,7 @@ urlpatterns = [
         # Errors:
         #     {"error":{"// field name //":["error message"]}}
 
-    path('api/account/register', acc_view.register),
+    # path('api/account/register', acc_view.register),
 
         # Request body should have:
         #     username : // send email here 
@@ -55,8 +55,8 @@ urlpatterns = [
         #     {"username":["This field may not be blank."],"password":["This field may not be blank."]}
         #     {"error":{"// field name //":["error message"]}}
     
-    path('api-token-auth/', authviews.obtain_auth_token),
+    # path('api-token-auth/', authviews.obtain_auth_token),
     
 
-    path('home/', views.home),
+    path('', views.index),
 ]
