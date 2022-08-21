@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", 'django-insecure-so7vp__%e&x2=qa8+33zc
 DEBUG = False # true previously
 
 ALLOWED_HOSTS = ['*']
-
+AUTH_USER_MODEL = "account.Account"
 
 # Application definition
 
@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'account',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +57,16 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # "rest_framework_api_key.permissions.HasAPIKey",
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 ROOT_URLCONF = 'serve_image.urls'
 
