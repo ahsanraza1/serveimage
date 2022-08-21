@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from serve_image_api import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', "dkhh"),
+    path('home/', views.home),
 ]
